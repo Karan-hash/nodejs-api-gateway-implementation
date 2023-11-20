@@ -2,8 +2,9 @@
   "name": "nodejs-api-gateway-implementation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gateway.js",
   "scripts": {
+    "dev": "nodemon gateway.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Karan-hash/nodejs-api-gateway-implementation/issues"
   },
-  "homepage": "https://github.com/Karan-hash/nodejs-api-gateway-implementation#readme"
+  "homepage": "https://github.com/Karan-hash/nodejs-api-gateway-implementation#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
 }
