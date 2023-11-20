@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-api-gateway-implementation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karan-hash/nodejs-api-gateway-implementation.git"
+  },
+  "author": "Karan Kaushal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karan-hash/nodejs-api-gateway-implementation/issues"
+  },
+  "homepage": "https://github.com/Karan-hash/nodejs-api-gateway-implementation#readme"
+}
