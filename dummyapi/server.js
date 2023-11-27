@@ -1,5 +1,6 @@
 const express = require("express");
-
+const axios = require('axios');
+const HOST = 'http://localhost'
 const app = express();
 const PORT = 8080;
 
@@ -19,5 +20,22 @@ app.post('/dummybogusapi', (req, res, next) => {
 })
 
 app.listen(PORT, () => {
+
+    axios
+    ({
+        method: 'POST',
+        url: "http://localhost:8000/register",
+        headers: {'Content-Type': 'application/json'},
+        data: {
+            apiName: "testapi",
+            host: HOST,
+            port: PORT,
+            url: HOST + ':' + PORT + '/'
+        }
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    
     console.log("Dummy Server has started on port : ", PORT);
 })
