@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 const registry = require("./registry.json");
+const fs = require('fs');
 router.all("/:apiName/:path", (req, res) => {
   console.log(req.params.apiName);
 //   res.send(req.params.apiName + "\n");
@@ -26,4 +27,30 @@ router.all("/:apiName/:path", (req, res) => {
  }
  
 });
+
+
+/**
+This end point will help us to register new endpoints in registery.json, We also have to pass host info which is in present in registry
+{
+            "apiName": "testapi",
+            "host": "http://localhost",
+            "port": 8080,
+            "url": "http://localhost:8080/"
+        }
+
+**/
+router.post('/register', (req, res) => {
+    const registrationInfo = req.body
+
+    registry.services[registrationInfo.apiName] = { ... registrationInfo }
+
+    fs.writeFile('./routes/registry.json', JSON.stringify(registry), (error) => {
+        if(error){
+            res.send("Could not register " + registrationInfo.apiName + "'\n" + error)
+        }
+        else{
+            res.send("Successfully registered " + registrationInfo.apiName);
+        }
+    })
+})
 module.exports = router;
