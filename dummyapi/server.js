@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require('axios');
-const HOST = 'http://localhost'
+const HOST = 'localhost'
 const app = express();
 const PORT = 8080;
 
@@ -28,9 +28,9 @@ app.listen(PORT, () => {
         headers: {'Content-Type': 'application/json'},
         data: {
             apiName: "testapi",
+            protocol: "http",
             host: HOST,
             port: PORT,
-            url: HOST + ':' + PORT + '/'
         }
     })
     .then((response) => {

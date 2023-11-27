@@ -40,8 +40,8 @@ This end point will help us to register new endpoints in registery.json, We also
 
 **/
 router.post('/register', (req, res) => {
-    const registrationInfo = req.body
-
+    const registrationInfo = req.body;
+    registrationInfo.url = registrationInfo.protocol + "://" + registrationInfo.host + ":" + registrationInfo.port + "/"
     registry.services[registrationInfo.apiName] = { ... registrationInfo }
 
     fs.writeFile('./routes/registry.json', JSON.stringify(registry), (error) => {
